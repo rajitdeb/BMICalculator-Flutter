@@ -1,4 +1,4 @@
-import '../gender_enum.dart';
+import '../enums/gender_enum.dart';
 
 class BMIDataModel {
   final Gender mGender;

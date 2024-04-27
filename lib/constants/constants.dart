@@ -40,3 +40,23 @@ const kCustomFABBoxConstraints = BoxConstraints(
   minWidth: 46.0,
   minHeight: 46.0,
 );
+
+// BMI Result Interpretation
+const kResultOverweight =
+    "You have a higher than normal body weight. Try to exercise more.";
+const kResultNormal = "You have a normal body weight. Good job!";
+const kResultUnderweight =
+    "You have a lower than normal body weight. You can eat a bit more.";
+
+const kResultTextStyle = TextStyle(
+  color: Color(0xFF24D876),
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kResultScoreTextStyle = TextStyle(
+  fontSize: 100.0,
+  fontWeight: FontWeight.w900,
+);
+
+const kResultInterpretationTextStyle = TextStyle(fontSize: 18.0);

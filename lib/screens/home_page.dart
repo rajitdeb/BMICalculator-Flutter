@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bmi_calculator_flutter/components/bottom_button.dart';
 import 'package:bmi_calculator_flutter/model/bmi_data.dart';
 import 'package:bmi_calculator_flutter/screens/result_page.dart';
 
@@ -9,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../components/custom_fab.dart';
-import '../gender_enum.dart';
+import '../enums/gender_enum.dart';
 import 'package:bmi_calculator_flutter/constants/constants.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -187,8 +188,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
 
-          GestureDetector(
-            onTap: () {
+          BottomButton(
+            buttonLabelText: "CALCULATE BMI",
+            onButtonPressed: () {
               if (selectedGender != null) {
                 BMIDataModel model = BMIDataModel(
                   mGender: selectedGender!,
@@ -201,22 +203,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 log("Gender is NULL", level: 20000);
               }
             },
-            child: Container(
-              margin: const EdgeInsets.only(top: 10.0),
-              color: kBottomContainerColor,
-              width: double.infinity,
-              height: kBottomContainerHeight,
-              child: const Center(
-                child: Text(
-                  "CALCULATE BMI",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 20.0,
-                  ),
-                ),
-              ),
-            ),
           )
         ],
       ),
