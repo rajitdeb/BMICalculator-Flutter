@@ -1,6 +1,7 @@
+import 'package:bmi_calculator_flutter/screens/result_page.dart';
 import 'package:flutter/material.dart';
 
-import 'home_page.dart';
+import 'screens/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +34,17 @@ class MyApp extends StatelessWidget {
       //   scaffoldBackgroundColor: Color(0xFF0A0E21),
       // ),
       home: const MyHomePage(),
+
+      // NOTE: IF YOU HAVE >= 4 SCREENS, THEN USE NAMED ROUTES LIKE BELOW
+      //
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => Screen0(),
+      //   '/first': (context) => Screen1(),
+      //   '/second': (context) => Screen2(),
+      //   '/third': (context) => Screen3(),
+      //   'fourth': (context) => Screen4(),
+      // },
     );
   }
 }

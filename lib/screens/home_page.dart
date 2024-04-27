@@ -1,10 +1,15 @@
-import '../components/reusable_icon_content.dart';
-import '../components/reusable_card.dart';
+import 'dart:developer';
+
+import 'package:bmi_calculator_flutter/model/bmi_data.dart';
+import 'package:bmi_calculator_flutter/screens/result_page.dart';
+
+import '../../components/reusable_icon_content.dart';
+import '../../components/reusable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'components/custom_fab.dart';
-import 'gender_enum.dart';
+import '../components/custom_fab.dart';
+import '../gender_enum.dart';
 import 'package:bmi_calculator_flutter/constants/constants.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -103,14 +108,13 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
             child: Row(
               children: [
-
                 // Weight Container
                 ReusableCard(
                   cardBackgroundColor: kActiveCardColor,
                   cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "WEIGHT",
                         style: kContentTextStyle,
                       ),
@@ -183,18 +187,33 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
 
-          Container(
-            margin: const EdgeInsets.only(top: 10.0),
-            color: kBottomContainerColor,
-            width: double.infinity,
-            height: kBottomContainerHeight,
-            child: const Center(
-              child: Text(
-                "CALCULATE BMI",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 20.0,
+          GestureDetector(
+            onTap: () {
+              if (selectedGender != null) {
+                BMIDataModel model = BMIDataModel(
+                  mGender: selectedGender!,
+                  mHeight: height,
+                  mWeight: weight,
+                  mAge: age,
+                );
+                showResultsScreen(model, context);
+              } else {
+                log("Gender is NULL", level: 20000);
+              }
+            },
+            child: Container(
+              margin: const EdgeInsets.only(top: 10.0),
+              color: kBottomContainerColor,
+              width: double.infinity,
+              height: kBottomContainerHeight,
+              child: const Center(
+                child: Text(
+                  "CALCULATE BMI",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20.0,
+                  ),
                 ),
               ),
             ),
@@ -202,5 +221,17 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
+  }
+
+  void showResultsScreen(BMIDataModel model, BuildContext mContext) {
+    setState(() {
+      Navigator.push(
+        mContext,
+        MaterialPageRoute(builder: (mContext) => ResultPage(dataModel: model)),
+      );
+
+      // WHEN USING NAMED ROUTES FOR >= 4 SCREENS
+      // Navigator.pushNamed(mContext, '/results');
+    });
   }
 }
