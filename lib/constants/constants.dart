@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+// APPLICATION WIDE CONSTANTS
+const kAppBarThemeColor = Color(0xFF0A0E21);
+const kAppScaffoldColor = Color(0xFF0A0E21);
+
 // Homepage
 // const is used when the value of the variable is available on compile time itself
 // And the value can't change once its assigned

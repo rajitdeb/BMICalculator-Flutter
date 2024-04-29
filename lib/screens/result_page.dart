@@ -2,13 +2,13 @@ import 'package:bmi_calculator_flutter/components/bottom_button.dart';
 import 'package:bmi_calculator_flutter/components/reusable_card.dart';
 import 'package:bmi_calculator_flutter/constants/constants.dart';
 import 'package:bmi_calculator_flutter/model/bmi_data.dart';
-import 'package:bmi_calculator_flutter/util/BMIUtil.dart';
+import 'package:bmi_calculator_flutter/util/bmi_util.dart';
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatefulWidget {
   final BMIDataModel dataModel;
 
-  ResultPage({super.key, required this.dataModel});
+  const ResultPage({super.key, required this.dataModel});
 
   @override
   State<ResultPage> createState() => _ResultPageState();
